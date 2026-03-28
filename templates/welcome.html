@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+ 
+{% block body %}
+
+    <div class="container">
+        
+        <h1>Welcome to My Website</h1>
+        <p> Are you an existing user? Please sign in to access your account. </p>
+        
+        <a href="{{ url_for('sign_in') }}"> Sign In </a>
+        <br>
+        <a href="{{ url_for('sign_up') }}"> New User </a>
+    </div>
+
+{% endblock %}
