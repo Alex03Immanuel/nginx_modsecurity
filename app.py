@@ -50,29 +50,6 @@ def sign_in():
     return render_template("sign_in.html", error="Invalid credentials")
 
 
-@app.route('/sign_up', methods=['GET', 'POST'])
-def sign_up():
-    if request.method == 'GET':
-        return render_template("sign_up.html")
-
-    username = request.form['username']
-    password = request.form['password']
-    confirm_password = request.form['confirm_password']
-
-    if password != confirm_password:
-        return render_template("sign_up.html", error="Passwords do not match")
-
-    if User.query.filter_by(username=username).first():
-        return render_template("sign_up.html", error="Username already exists") #this does not work because the user is not created yet, so it will always return false, and the user will be created, even if the username already exists. This is a security flaw that allows attackers to create multiple accounts with the same username, which can lead to confusion and potential security issues. To fix this, we need to check if the username already exists before creating a new user.
-
-    
-    new_user = User(username=username)
-    new_user.set_password(password)
-    db.session.add(new_user)
-    db.session.commit()
-        
-    return redirect(url_for("sign_in"))
-
 
 @app.route('/landing_page')
 def dashboard():
