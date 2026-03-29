@@ -6,13 +6,14 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = 'mypassword123'
 db = SQLAlchemy(app)
 
 # User model
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(20), unique=True, nullable=False)
-    password = db.Column(db.String(20), nullable=False)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    password = db.Column(db.String(256), nullable=False)
 
     def set_password(self, password):
         self.password = generate_password_hash(password)
@@ -42,9 +43,11 @@ def sign_in():
 
     if user and user.check_password(password):
         session['username'] = user.username
+        print(f"Password check result:{password}", user.check_password(password) if user else "No user")  # Debugging statement
         return redirect(url_for("dashboard"))
-    else:
-        return render_template("sign_in.html", error="Invalid credentials")
+    
+    print(f"Password check result:{password}", user.check_password(password) if user else "No user")  # Debugging statement
+    return render_template("sign_in.html", error="Invalid credentials")
 
 
 @app.route('/sign_up', methods=['GET', 'POST'])
@@ -54,24 +57,35 @@ def sign_up():
 
     username = request.form['username']
     password = request.form['password']
+    confirm_password = request.form['confirm_password']
+
+    if password != confirm_password:
+        return render_template("sign_up.html", error="Passwords do not match")
 
     if User.query.filter_by(username=username).first():
-        return render_template("sign_up.html", error="Username already exists")
+        return render_template("sign_up.html", error="Username already exists") #this does not work because the user is not created yet, so it will always return false, and the user will be created, even if the username already exists. This is a security flaw that allows attackers to create multiple accounts with the same username, which can lead to confusion and potential security issues. To fix this, we need to check if the username already exists before creating a new user.
 
     
     new_user = User(username=username)
     new_user.set_password(password)
     db.session.add(new_user)
     db.session.commit()
-    session['username'] = new_user.username
+        
     return redirect(url_for("sign_in"))
+
 
 @app.route('/landing_page')
 def dashboard():
     if "username" in session:
         return render_template("dashboard.html", username=session['username'])
-    else:
-        return redirect(url_for("welcome"))
+    
+    return redirect(url_for("welcome"))
+
+
+@app.route('/logout')
+def logout():
+    session.pop('username', None)
+    return redirect(url_for("welcome"))
 
 
 if __name__ == '__main__':
