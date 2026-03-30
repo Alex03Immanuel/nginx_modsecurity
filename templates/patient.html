@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <h1>Patient Information</h1>
+    <p><strong>Name:</strong> {{ patient.name }}</p>
+    <p><strong>Age:</strong> {{ patient.age }}</p>
+    <p><strong>Condition:</strong> {{ patient.condition }}</p>
+    <p><strong>Doctor:</strong> {{ patient.doctor }}</p>
+
+    <h2>Medical Report</h2>
+    
+    {% if patient.report in ALLOWED_REPORTS %}
+        <a href="{{ url_for('download', filename=patient.report) }}">Download Report</a>
+    {% endif %}
+
+    <a href="{{ url_for('dashboard') }}">back</a>
+{% endblock %}

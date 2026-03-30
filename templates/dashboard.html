@@ -3,5 +3,19 @@
 {% block body %}
 
 <h1> Welcome Nigga ! </h1>
-<a href = {{url_for('logout')}}>Logout</a>
+<br>
+<br>
+<a href = "{{ url_for('logout') }}"">Logout</a>
+<br>
+<br>
+   {%for patient in patients%}
+   <div>
+       <a href = "{{ url_for('patient_profile', patient_id=patient.id) }}">
+           <h3>{{ patient.name }}</h3>
+       </a>
+       <p><strong>Age:</strong> {{ patient.age }}</p>
+       <p><strong>Condition:</strong> {{ patient.condition }}</p>
+       <p><strong>Doctor:</strong> {{ patient.doctor }}</p>
+   </div>
+   {%endfor%}
 {% endblock %}

@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, request, session, url_for
+from flask import Flask, redirect, render_template, request, session, url_for, send_from_directory
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_sqlalchemy import SQLAlchemy
 
@@ -22,12 +22,26 @@ class User(db.Model):
         return check_password_hash(self.password, password)
 
 
+patients = [
+    {"id": 1, "name": "Aisha Khan", "age": 40, "condition": "Hypertension", "doctor": "Dr. Mehta", "report": "report_001.txt"},
+    {"id": 2, "name": "Ravi Verma", "age": 53, "condition": "Type 2 Diabetes", "doctor": "Dr. Patel", "report": "report_002.txt"},
+    {"id": 3, "name": "Sarah Lin", "age": 35, "condition": "Asthma", "doctor": "Dr. Chen", "report": "report_003.txt"},
+    {"id": 4, "name": "James Okafor", "age": 61, "condition": "Coronary Artery Disease", "doctor": "Dr. Mehta", "report": "report_004.txt"},
+    {"id": 5, "name": "Priya Nair", "age": 28, "condition": "Migraine", "doctor": "Dr. Patel", "report": "report_005.txt"},
+]
+
+ALLOWED_REPORTS = {"report_001.txt", "report_002.txt", "report_003.txt", "report_004.txt", "report_005.txt"}    
+ALLOWED_EXTENSIONS = {".txt", ".pdf"}
+
+
 # routes
 @app.route('/')
 def welcome():
     if "username" in session:
+        print(session)
         return redirect(url_for("dashboard"))
     else:
+        print(session)
         return render_template("welcome.html")
 
 
@@ -54,7 +68,8 @@ def sign_in():
 @app.route('/landing_page')
 def dashboard():
     if "username" in session:
-        return render_template("dashboard.html", username=session['username'])
+        print(session)
+        return render_template("dashboard.html", patients=patients)
     
     return redirect(url_for("welcome"))
 
@@ -64,6 +79,35 @@ def logout():
     session.pop('username', None)
     return redirect(url_for("welcome"))
 
+
+@app.route('/patient/<int:patient_id>')
+def patient_profile(patient_id):
+    if "username" not in session:
+        return redirect(url_for("welcome"))
+    
+    for p in patients:
+        if p["id"] == patient_id:
+            patient = p["id"]
+            return render_template("patient.html", patient=p)
+    
+    return "<h1>Patient not found</h1>", 404
+
+@app.route('/download')
+def download():
+    if "username" not in session:
+        return redirect(url_for("welcome"))
+    
+    report_name = request.args.get('report')
+    
+    if not report_name:
+        return "Report name is required", 400
+
+    if report_name not in ALLOWED_REPORTS:
+        return "Report not found", 404
+    
+    return send_from_directory('reports', report_name, as_attachment=True)
+    
+    
 
 if __name__ == '__main__':
 
