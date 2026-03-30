@@ -1,0 +1,76 @@
+================================================
+         MEDIPORTAL HEALTH SYSTEMS
+         PATIENT HEALTH REPORT
+================================================
+
+Patient Name   : Aisha Khan
+Patient ID     : P-001
+Date of Birth  : 12 March 1985
+Gender         : Female
+Doctor         : Dr. Mehta
+Report Date    : 15 January 2024
+
+------------------------------------------------
+DIAGNOSIS
+------------------------------------------------
+Condition      : Hypertension — Stage 1
+Duration       : Diagnosed 3 years ago
+Severity       : Moderate
+
+------------------------------------------------
+VITALS
+------------------------------------------------
+Blood Pressure : 145/92 mmHg       [HIGH]
+Heart Rate     : 78 bpm            [NORMAL]
+Temperature    : 98.6 F            [NORMAL]
+Weight         : 68 kg
+Height         : 164 cm
+BMI            : 25.3              [NORMAL]
+O2 Saturation  : 98%               [NORMAL]
+
+------------------------------------------------
+CURRENT MEDICATION
+------------------------------------------------
+1. Amlodipine 5mg        — Once daily (morning)
+2. Losartan 50mg         — Once daily (evening)
+
+------------------------------------------------
+LAB RESULTS
+------------------------------------------------
+Total Cholesterol  : 210 mg/dL     [BORDERLINE]
+LDL                : 138 mg/dL     [BORDERLINE]
+HDL                : 52 mg/dL      [NORMAL]
+Triglycerides      : 148 mg/dL     [NORMAL]
+Fasting Blood Sugar: 94 mg/dL      [NORMAL]
+Kidney Function    : Normal
+Liver Function     : Normal
+
+------------------------------------------------
+DOCTOR NOTES
+------------------------------------------------
+Patient reports occasional headaches and
+dizziness in the mornings. Advised to:
+
+  - Reduce sodium intake to under 2g/day
+  - Exercise 30 minutes daily (walking)
+  - Avoid caffeine and alcohol
+  - Monitor BP at home twice daily
+  - Return immediately if BP exceeds 160/100
+
+Blood pressure has slightly improved compared
+to last visit. Continue current medication.
+Referral to dietician recommended.
+
+------------------------------------------------
+NEXT REVIEW
+------------------------------------------------
+Date           : 15 April 2024
+Doctor         : Dr. Mehta
+Location       : MediPortal Clinic — Room 4B
+
+================================================
+CONFIDENTIAL — MEDIPORTAL HEALTH SYSTEMS
+This report is intended solely for the named
+patient and their authorised healthcare provider.
+Unauthorised access is a violation of HIPAA.
+================================================

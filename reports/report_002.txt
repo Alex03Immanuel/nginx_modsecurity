@@ -1,0 +1,81 @@
+================================================
+         MEDIPORTAL HEALTH SYSTEMS
+         PATIENT HEALTH REPORT
+================================================
+
+Patient Name   : Ravi Verma
+Patient ID     : P-002
+Date of Birth  : 04 July 1972
+Gender         : Male
+Doctor         : Dr. Patel
+Report Date    : 20 January 2024
+
+------------------------------------------------
+DIAGNOSIS
+------------------------------------------------
+Condition      : Type 2 Diabetes Mellitus
+Duration       : Diagnosed 7 years ago
+Severity       : Moderate — under management
+
+------------------------------------------------
+VITALS
+------------------------------------------------
+Blood Pressure : 132/84 mmHg       [BORDERLINE]
+Heart Rate     : 82 bpm            [NORMAL]
+Temperature    : 98.4 F            [NORMAL]
+Weight         : 84 kg
+Height         : 172 cm
+BMI            : 28.4              [OVERWEIGHT]
+O2 Saturation  : 97%               [NORMAL]
+
+------------------------------------------------
+CURRENT MEDICATION
+------------------------------------------------
+1. Metformin 500mg       — Twice daily (meals)
+2. Glipizide 5mg         — Once daily (morning)
+3. Atorvastatin 10mg     — Once daily (night)
+
+------------------------------------------------
+LAB RESULTS
+------------------------------------------------
+Fasting Blood Sugar : 148 mg/dL    [HIGH]
+Post-meal Blood Sugar: 210 mg/dL   [HIGH]
+HbA1c               : 7.8%         [HIGH — target <7%]
+Total Cholesterol   : 224 mg/dL    [HIGH]
+LDL                 : 152 mg/dL    [HIGH]
+HDL                 : 44 mg/dL     [LOW]
+Triglycerides       : 198 mg/dL    [BORDERLINE]
+Kidney Function     : Mildly reduced (eGFR 72)
+Liver Function      : Normal
+Urine Albumin       : 32 mg/g      [BORDERLINE]
+
+------------------------------------------------
+DOCTOR NOTES
+------------------------------------------------
+HbA1c remains above target despite medication.
+Patient admits inconsistency with diet. Advised:
+
+  - Strict low-carbohydrate diet
+  - Daily blood sugar monitoring (morning)
+  - Increase physical activity — 45 mins/day
+  - Avoid sugary drinks and processed foods
+  - Foot examination every visit (neuropathy risk)
+
+Kidney function showing early signs of diabetic
+nephropathy. Monitor closely. Consider referral
+to endocrinologist if HbA1c does not improve
+in next 3 months.
+
+------------------------------------------------
+NEXT REVIEW
+------------------------------------------------
+Date           : 20 March 2024
+Doctor         : Dr. Patel
+Location       : MediPortal Clinic — Room 2A
+
+================================================
+CONFIDENTIAL — MEDIPORTAL HEALTH SYSTEMS
+This report is intended solely for the named
+patient and their authorised healthcare provider.
+Unauthorised access is a violation of HIPAA.
+================================================

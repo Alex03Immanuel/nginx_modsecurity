@@ -1,0 +1,97 @@
+================================================
+         MEDIPORTAL HEALTH SYSTEMS
+         PATIENT HEALTH REPORT
+================================================
+
+Patient Name   : James Okafor
+Patient ID     : P-004
+Date of Birth  : 17 September 1963
+Gender         : Male
+Doctor         : Dr. Mehta
+Report Date    : 08 January 2024
+
+------------------------------------------------
+DIAGNOSIS
+------------------------------------------------
+Condition      : Coronary Artery Disease (CAD)
+Duration       : Diagnosed 5 years ago
+Severity       : Moderate — post angioplasty
+
+------------------------------------------------
+VITALS
+------------------------------------------------
+Blood Pressure : 138/88 mmHg       [BORDERLINE HIGH]
+Heart Rate     : 68 bpm            [NORMAL]
+Temperature    : 98.2 F            [NORMAL]
+Weight         : 91 kg
+Height         : 178 cm
+BMI            : 28.7              [OVERWEIGHT]
+O2 Saturation  : 96%               [NORMAL]
+Resting ECG    : Normal sinus rhythm
+
+------------------------------------------------
+CURRENT MEDICATION
+------------------------------------------------
+1. Aspirin 75mg          — Once daily (morning)
+2. Atorvastatin 40mg     — Once daily (night)
+3. Metoprolol 25mg       — Twice daily
+4. Ramipril 5mg          — Once daily (morning)
+5. Nitroglycerin spray   — As needed (chest pain)
+
+------------------------------------------------
+LAB RESULTS
+------------------------------------------------
+Total Cholesterol   : 198 mg/dL    [BORDERLINE]
+LDL                 : 118 mg/dL    [BORDERLINE]
+HDL                 : 38 mg/dL     [LOW]
+Triglycerides       : 172 mg/dL    [BORDERLINE]
+Fasting Blood Sugar : 102 mg/dL    [BORDERLINE]
+HbA1c               : 5.9%         [NORMAL]
+Troponin I          : Negative     [NORMAL]
+BNP                 : 88 pg/mL     [NORMAL]
+Kidney Function     : Normal
+Liver Function      : Normal
+CRP                 : 2.8 mg/L     [BORDERLINE]
+
+------------------------------------------------
+ECHOCARDIOGRAM FINDINGS
+------------------------------------------------
+Ejection Fraction   : 52%          [LOW NORMAL]
+Left Ventricle      : Mild diastolic dysfunction
+Wall Motion         : Normal
+Valves              : No significant abnormality
+
+------------------------------------------------
+DOCTOR NOTES
+------------------------------------------------
+Patient underwent angioplasty with stent
+placement (LAD) in 2019. Current status stable.
+Patient reports occasional mild chest tightness
+on exertion — no rest pain. Advised:
+
+  - Strictly maintain antiplatelet therapy
+  - Do not miss Aspirin or Metoprolol doses
+  - Cardiac rehab exercises — 3x per week
+  - Low fat, low sodium diet
+  - Absolute smoking cessation (patient smokes
+    5 cigarettes/day — counselled again)
+  - Report any chest pain lasting > 5 mins
+    immediately to emergency services
+
+HDL remains low — statin dose maintained.
+Stress echo scheduled next visit to assess
+ischaemia. Annual cardiology review recommended.
+
+------------------------------------------------
+NEXT REVIEW
+------------------------------------------------
+Date           : 08 April 2024
+Doctor         : Dr. Mehta
+Location       : MediPortal Clinic — Room 4B
+
+================================================
+CONFIDENTIAL — MEDIPORTAL HEALTH SYSTEMS
+This report is intended solely for the named
+patient and their authorised healthcare provider.
+Unauthorised access is a violation of HIPAA.
+================================================

@@ -1,0 +1,83 @@
+================================================
+         MEDIPORTAL HEALTH SYSTEMS
+         PATIENT HEALTH REPORT
+================================================
+
+Patient Name   : Sarah Lin
+Patient ID     : P-003
+Date of Birth  : 29 November 1990
+Gender         : Female
+Doctor         : Dr. Chen
+Report Date    : 10 January 2024
+
+------------------------------------------------
+DIAGNOSIS
+------------------------------------------------
+Condition      : Mild Persistent Asthma
+Duration       : Diagnosed since childhood
+Severity       : Mild — well controlled
+
+------------------------------------------------
+VITALS
+------------------------------------------------
+Blood Pressure : 118/74 mmHg       [NORMAL]
+Heart Rate     : 72 bpm            [NORMAL]
+Temperature    : 98.6 F            [NORMAL]
+Weight         : 58 kg
+Height         : 162 cm
+BMI            : 22.1              [NORMAL]
+O2 Saturation  : 97%               [NORMAL]
+Peak Flow      : 420 L/min         [82% predicted]
+Respiratory Rate: 16 breaths/min   [NORMAL]
+
+------------------------------------------------
+CURRENT MEDICATION
+------------------------------------------------
+1. Salbutamol 100mcg inhaler  — As needed (rescue)
+2. Budesonide 200mcg inhaler  — Twice daily (control)
+
+------------------------------------------------
+LAB RESULTS
+------------------------------------------------
+Spirometry FEV1     : 82%          [MILD REDUCTION]
+FEV1/FVC Ratio      : 0.74         [BORDERLINE]
+FeNO (inflammation) : 28 ppb       [BORDERLINE]
+Total IgE           : 148 IU/mL    [ELEVATED]
+Eosinophil Count    : 0.4 x10^9/L  [BORDERLINE]
+Blood Pressure      : Normal
+Full Blood Count    : Normal
+Allergy Panel       : Dust mites, pollen — positive
+
+------------------------------------------------
+DOCTOR NOTES
+------------------------------------------------
+Patient reports good symptom control on current
+medication. Uses rescue inhaler approximately
+twice per week. Advised:
+
+  - Continue current inhaler regimen
+  - Avoid known triggers — dust, pollen, smoke
+  - Use peak flow meter at home weekly
+  - Keep rescue inhaler accessible at all times
+  - Annual flu vaccine strongly recommended
+  - Review inhaler technique — patient confirmed
+    correct technique at this visit
+
+No hospitalisation or ER visits since last review.
+Asthma action plan updated and provided to patient.
+Consider step-down therapy at next visit if
+symptom control maintained.
+
+------------------------------------------------
+NEXT REVIEW
+------------------------------------------------
+Date           : 10 July 2024
+Doctor         : Dr. Chen
+Location       : MediPortal Clinic — Room 6C
+
+================================================
+CONFIDENTIAL — MEDIPORTAL HEALTH SYSTEMS
+This report is intended solely for the named
+patient and their authorised healthcare provider.
+Unauthorised access is a violation of HIPAA.
+================================================

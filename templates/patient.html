@@ -10,7 +10,7 @@
     <h2>Medical Report</h2>
     
     
-    <a href="{{ url_for('download', file=patient.report) }}">Download Report</a>
+    <a href="{{ url_for('download', report=patient.report) }}">Download Report</a>
 
     <a href="{{ url_for('dashboard') }}">back</a>
 {% endblock %}

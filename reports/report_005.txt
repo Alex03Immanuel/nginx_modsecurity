@@ -1,0 +1,112 @@
+================================================
+         MEDIPORTAL HEALTH SYSTEMS
+         PATIENT HEALTH REPORT
+================================================
+
+Patient Name   : Priya Nair
+Patient ID     : P-005
+Date of Birth  : 03 February 1996
+Gender         : Female
+Doctor         : Dr. Patel
+Report Date    : 22 January 2024
+
+------------------------------------------------
+DIAGNOSIS
+------------------------------------------------
+Condition      : Chronic Migraine
+Duration       : Diagnosed 4 years ago
+Severity       : Moderate — 10-12 episodes/month
+
+------------------------------------------------
+VITALS
+------------------------------------------------
+Blood Pressure : 112/70 mmHg       [NORMAL]
+Heart Rate     : 74 bpm            [NORMAL]
+Temperature    : 98.6 F            [NORMAL]
+Weight         : 54 kg
+Height         : 158 cm
+BMI            : 21.6              [NORMAL]
+O2 Saturation  : 99%               [NORMAL]
+Neurological   : No focal deficits
+
+------------------------------------------------
+CURRENT MEDICATION
+------------------------------------------------
+1. Sumatriptan 50mg      — At migraine onset
+2. Topiramate 25mg       — Once daily (preventive)
+3. Ibuprofen 400mg       — As needed (mild attacks)
+4. Vitamin B2 400mg      — Once daily (supplement)
+
+------------------------------------------------
+LAB RESULTS
+------------------------------------------------
+Full Blood Count    : Normal
+Thyroid (TSH)       : 2.1 mIU/L    [NORMAL]
+Vitamin B12         : 310 pg/mL    [LOW NORMAL]
+Vitamin D           : 22 ng/mL     [DEFICIENT]
+Iron Studies        : Normal
+Magnesium           : 1.6 mg/dL    [LOW NORMAL]
+ESR                 : 12 mm/hr     [NORMAL]
+CRP                 : 0.4 mg/L     [NORMAL]
+Liver Function      : Normal
+Kidney Function     : Normal
+
+------------------------------------------------
+MRI BRAIN FINDINGS
+------------------------------------------------
+Date           : November 2023
+Result         : No structural abnormality
+               : No evidence of intracranial
+                 lesion or haemorrhage
+               : White matter — within normal
+                 limits for age
+
+------------------------------------------------
+MIGRAINE DIARY SUMMARY (Last 30 days)
+------------------------------------------------
+Total Episodes     : 11
+Average Duration   : 14 hours
+Severity (avg)     : 7/10
+Main Triggers      : Stress, sleep disruption,
+                     screen time, menstrual cycle
+Nausea             : Present in 8/11 episodes
+Photophobia        : Present in all episodes
+Aura               : Visual aura in 3 episodes
+
+------------------------------------------------
+DOCTOR NOTES
+------------------------------------------------
+Patient reports partial improvement with
+Topiramate but frequency remains high. Advised:
+
+  - Maintain migraine diary consistently
+  - Identify and avoid personal triggers
+  - Regular sleep schedule — 7-8 hours nightly
+  - Limit screen time, use blue light filter
+  - Stay well hydrated — minimum 2L water/day
+  - Start Vitamin D supplement 1000 IU daily
+  - Consider Magnesium supplement 400mg daily
+
+Topiramate dose to be increased to 50mg at
+next visit if frequency does not reduce.
+Referral to neurology for botulinum toxin
+therapy (Botox) under consideration if
+preventive medication proves insufficient.
+
+Patient also reports increased anxiety — referred
+to counselling services. Stress is a significant
+migraine trigger for this patient.
+
+------------------------------------------------
+NEXT REVIEW
+------------------------------------------------
+Date           : 22 March 2024
+Doctor         : Dr. Patel
+Location       : MediPortal Clinic — Room 2A
+
+================================================
+CONFIDENTIAL — MEDIPORTAL HEALTH SYSTEMS
+This report is intended solely for the named
+patient and their authorised healthcare provider.
+Unauthorised access is a violation of HIPAA.
+================================================
