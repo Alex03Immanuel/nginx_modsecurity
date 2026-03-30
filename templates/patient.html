@@ -1,16 +1,133 @@
 {% extends "base.html" %}
 
 {% block body %}
-    <h1>Patient Information</h1>
-    <p><strong>Name:</strong> {{ patient.name }}</p>
-    <p><strong>Age:</strong> {{ patient.age }}</p>
-    <p><strong>Condition:</strong> {{ patient.condition }}</p>
-    <p><strong>Doctor:</strong> {{ patient.doctor }}</p>
 
-    <h2>Medical Report</h2>
-    
-    
-    <a href="{{ url_for('download', report=patient.report) }}">Download Report</a>
+<a href="{{ url_for('dashboard') }}" class="back-link">
+    ← Back to dashboard
+</a>
 
-    <a href="{{ url_for('dashboard') }}">back</a>
+<div class="page-header">
+    <h4>Patient Profile</h4>
+    <p>Viewing health record for {{ patient.name }}</p>
+</div>
+
+<div class="row g-4">
+
+    <div class="col-md-7">
+        <div class="card h-100">
+            <div style="padding:1.25rem 1.5rem;border-bottom:1px solid var(--grey-200);">
+                <div class="section-label">Patient Details</div>
+                <div class="d-flex align-items-center gap-3">
+                    <div style="width:56px;height:56px;border-radius:50%;background:#e8f2ff;color:#0d6efd;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;flex-shrink:0;">
+                        {{ patient.name[0] }}{{ patient.name.split()[1][0] }}
+                    </div>
+                    <div>
+                        <h5 style="font-size:1.1rem;font-weight:700;color:#0a1628;margin-bottom:2px;">
+                            {{ patient.name }}
+                        </h5>
+                        <div class="d-flex align-items-center gap-2">
+                            <span style="font-size:0.775rem;color:#6c757d;">Patient ID:</span>
+                            <code style="font-size:0.775rem;background:#f4f6f9;padding:2px 8px;border-radius:4px;color:#1a1f2e;">
+                                P-00{{ patient.id }}
+                            </code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding:1.5rem;">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div style="background:#f4f6f9;border-radius:10px;padding:1rem;">
+                            <div style="font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#6c757d;margin-bottom:4px;">Age</div>
+                            <div style="font-size:1.1rem;font-weight:700;color:#0a1628;">{{ patient.age }} <span style="font-size:0.8rem;font-weight:500;color:#6c757d;">years</span></div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div style="background:#f4f6f9;border-radius:10px;padding:1rem;">
+                            <div style="font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#6c757d;margin-bottom:4px;">Assigned Doctor</div>
+                            <div style="font-size:0.95rem;font-weight:600;color:#0a1628;">{{ patient.doctor }}</div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div style="background:#f4f6f9;border-radius:10px;padding:1rem;">
+                            <div style="font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#6c757d;margin-bottom:6px;">Condition</div>
+                            <span class="condition-badge" style="font-size:0.8rem;padding:5px 14px;">
+                                {{ patient.condition }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--grey-200);">
+                    <div style="font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#6c757d;margin-bottom:6px;">Report File</div>
+                    <div class="d-flex align-items-center gap-2">
+                        <code style="font-size:0.8rem;background:#f4f6f9;padding:4px 10px;border-radius:6px;color:#1a1f2e;border:1px solid #e9ecef;">
+                            {{ patient.report }}
+                        </code>
+                        <span style="font-size:0.72rem;color:#6c757d;">· Plain text · Confidential</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <div class="card mb-3">
+            <div style="padding:1.25rem 1.5rem;border-bottom:1px solid var(--grey-200);">
+                <div class="section-label">Health Report</div>
+            </div>
+            <div style="padding:1.5rem;">
+
+                <div style="display:flex;align-items:center;gap:12px;background:#f4f6f9;border-radius:10px;padding:1rem;border:1px solid #e9ecef;margin-bottom:1rem;">
+                    <div style="width:42px;height:42px;background:#e8f2ff;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z" fill="#0d6efd"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div style="font-size:0.85rem;font-weight:600;color:#1a1f2e;">{{ patient.report }}</div>
+                        <div style="font-size:0.75rem;color:#6c757d;">Patient health summary · .txt</div>
+                    </div>
+                </div>
+
+                <a href="{{ url_for('download', report=patient.report) }}"
+                   class="btn btn-primary w-100 py-2 mb-3"
+                   style="border-radius:10px;font-size:0.875rem;">
+                    Download Report
+                </a>
+
+                <div style="background:#f0fdf4;border-radius:10px;padding:0.875rem 1rem;border:1px solid #bbf7d0;">
+                    <div style="font-size:0.72rem;font-weight:700;color:#166534;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">
+                        Secured Download
+                    </div>
+                    <p style="font-size:0.775rem;color:#166534;margin:0;line-height:1.5;">
+                        This report is protected by the MediPortal WAF. Only whitelisted report filenames can be accessed.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <div style="background:#fff8e1;border-radius:12px;padding:1rem 1.25rem;border:1px solid #ffe082;">
+            <div style="font-size:0.72rem;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">
+                WAF Demo — Path Traversal Attack
+            </div>
+            <p style="font-size:0.775rem;color:#78350f;margin-bottom:6px;line-height:1.5;">
+                Try manipulating the download URL to escape the reports folder:
+            </p>
+            <code style="font-size:0.725rem;color:#b91c1c;word-break:break-all;display:block;background:rgba(0,0,0,0.04);padding:6px 8px;border-radius:6px;margin-bottom:6px;">
+                /download?report=../../etc/passwd
+            </code>
+            <code style="font-size:0.725rem;color:#b91c1c;word-break:break-all;display:block;background:rgba(0,0,0,0.04);padding:6px 8px;border-radius:6px;margin-bottom:6px;">
+                /download?report=%2e%2e%2fetc%2fpasswd
+            </code>
+            <p style="font-size:0.75rem;color:#92400e;margin:0;">
+                ModSecurity returns <strong>403 Forbidden</strong> and logs the attempt.
+            </p>
+        </div>
+
+    </div>
+</div>
+
 {% endblock %}

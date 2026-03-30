@@ -1,13 +1,16 @@
 import os
+from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, request, session, url_for, send_from_directory
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_sqlalchemy import SQLAlchemy
+
+load_dotenv()
 
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'mypassword123'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-only-key')
 db = SQLAlchemy(app)
 
 # User model
@@ -32,17 +35,15 @@ patients = [
 ]
 
 ALLOWED_REPORTS = {"report_001.txt", "report_002.txt", "report_003.txt", "report_004.txt", "report_005.txt"}    
-ALLOWED_EXTENSIONS = {".txt", ".pdf"}
+REPORTS_FOLDER = os.path.join(os.path.dirname(__file__), "reports")
 
 
 # routes
 @app.route('/')
 def welcome():
     if "username" in session:
-        print(session)
         return redirect(url_for("dashboard"))
     else:
-        print(session)
         return render_template("welcome.html")
 
 
@@ -58,21 +59,24 @@ def sign_in():
 
     if user and user.check_password(password):
         session['username'] = user.username
-        print(f"Password check result:{password}", user.check_password(password) if user else "No user")  # Debugging statement
         return redirect(url_for("dashboard"))
     
-    print(f"Password check result:{password}", user.check_password(password) if user else "No user")  # Debugging statement
     return render_template("sign_in.html", error="Invalid credentials")
 
 
 
 @app.route('/landing_page')
 def dashboard():
-    if "username" in session:
-        print(session)
-        return render_template("dashboard.html", patients=patients)
+    if "username" not in session:
+        return redirect(url_for("welcome"))
     
-    return redirect(url_for("welcome"))
+    query = request.args.get('q', '')
+    if query:
+        filtered_patients = [p for p in patients if query.lower() in p["name"].lower()]
+    else:
+        filtered_patients = patients
+
+    return render_template("dashboard.html", patients=filtered_patients, query=query, username=session["username"])
 
 
 @app.route('/logout')
@@ -105,7 +109,7 @@ def download():
     if report_name not in ALLOWED_REPORTS:
         return "Report not found", 404
     
-    return send_from_directory('reports', report_name, as_attachment=True)
+    return send_from_directory(REPORTS_FOLDER, report_name, as_attachment=True)
     
     
 

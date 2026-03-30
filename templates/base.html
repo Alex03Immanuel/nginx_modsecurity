@@ -1,16 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> My Website</title>
-    </head>
-    <body>
-        
-        {% block body %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediPortal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy:       #0a1628;
+            --navy-mid:   #0f2744;
+            --navy-light: #1a3a5c;
+            --blue:       #0d6efd;
+            --blue-light: #e8f2ff;
+            --accent:     #4fc3f7;
+            --grey-100:   #f4f6f9;
+            --grey-200:   #e9ecef;
+            --grey-500:   #6c757d;
+            --text:       #1a1f2e;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+            background-color: var(--grey-100);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        .navbar {
+            background: var(--navy) !important;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 0.8rem 0;
+        }
+        .navbar-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff !important;
+            letter-spacing: -0.02em;
+        }
+        .navbar-brand .accent { color: var(--accent); }
+        .nav-divider {
+            width: 1px; height: 18px;
+            background: rgba(255,255,255,0.15);
+            margin: 0 12px;
+        }
+        .nav-username {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.55);
+            font-weight: 500;
+        }
+        .nav-username span { color: rgba(255,255,255,0.9); font-weight: 600; }
+        .btn-nav-logout {
+            font-size: 0.775rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            padding: 5px 14px;
+            background: transparent;
+            transition: all 0.15s;
+            text-decoration: none;
+        }
+        .btn-nav-logout:hover {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border-color: rgba(255,255,255,0.4);
+        }
+        .nav-dot {
+            width: 8px; height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            margin-right: 6px;
+            box-shadow: 0 0 0 2px rgba(74,222,128,0.25);
+            display: inline-block;
+        }
+        .main-content { padding: 2rem 0 4rem; }
+        .card {
+            border: 1px solid var(--grey-200);
+            border-radius: 14px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+            background: #fff;
+        }
+        .stat-card {
+            background: #fff;
+            border: 1px solid var(--grey-200);
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+        .stat-icon {
+            width: 42px; height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .stat-num {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.72rem;
+            color: var(--grey-500);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .table th {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--grey-500);
+            font-weight: 600;
+            padding: 0.75rem 1.25rem;
+            background: var(--grey-100);
+            border-bottom: 1px solid var(--grey-200);
+        }
+        .table td {
+            padding: 0.875rem 1.25rem;
+            font-size: 0.875rem;
+            border-bottom: 1px solid var(--grey-200);
+            vertical-align: middle;
+        }
+        .table tbody tr:last-child td { border-bottom: none; }
+        .table tbody tr:hover td { background: #fafbfd; }
+        .btn-primary {
+            background: var(--blue);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.15s;
+        }
+        .btn-primary:hover { background: #0b5ed7; transform: translateY(-1px); }
+        .btn-outline-primary { border-radius: 8px; font-weight: 600; font-size: 0.8rem; }
+        .btn-outline-secondary { border-radius: 8px; font-weight: 500; font-size: 0.8rem; }
+        .avatar {
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            background: var(--blue-light);
+            color: var(--blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .condition-badge {
+            background: var(--blue-light);
+            color: var(--navy-mid);
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            border: 1px solid rgba(13,110,253,0.12);
+        }
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid var(--grey-200);
+            font-size: 0.875rem;
+            padding: 0.6rem 0.875rem;
+            color: var(--text);
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+        .form-control:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(13,110,253,0.1);
+        }
+        .form-label {
+            font-size: 0.825rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.4rem;
+        }
+        .page-header { margin-bottom: 1.75rem; }
+        .page-header h4 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+        .page-header p {
+            font-size: 0.85rem;
+            color: var(--grey-500);
+            margin: 0;
+        }
+        .alert-danger {
+            background: #fff0f0;
+            border: 1px solid #ffd0d0;
+            color: #b91c1c;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            padding: 0.6rem 0.875rem;
+        }
+        .back-link {
+            font-size: 0.825rem;
+            color: var(--grey-500);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            transition: color 0.15s;
+        }
+        .back-link:hover { color: var(--blue); }
+        .section-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--grey-500);
+            margin-bottom: 0.75rem;
+        }
+    </style>
+</head>
+<body>
 
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url_for('welcome') }}">
+            Medi<span class="accent">Portal</span>
+        </a>
+        {% if session.get('username') %}
+        <div class="d-flex align-items-center gap-3">
+            <div class="d-flex align-items-center">
+                <span class="nav-dot"></span>
+                <span class="nav-username">Signed in as <span>{{ session['username'] }}</span></span>
+            </div>
+            <div class="nav-divider"></div>
+            <a href="{{ url_for('logout') }}" class="btn-nav-logout">Logout</a>
+        </div>
+        {% endif %}
+    </div>
+</nav>
 
-        {% endblock %}
+<div class="main-content">
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+</div>
 
-    </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
