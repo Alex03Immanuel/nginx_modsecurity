@@ -1,3 +1,4 @@
+import os
 from flask import Flask, redirect, render_template, request, session, url_for, send_from_directory
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_sqlalchemy import SQLAlchemy
@@ -87,7 +88,6 @@ def patient_profile(patient_id):
     
     for p in patients:
         if p["id"] == patient_id:
-            patient = p["id"]
             return render_template("patient.html", patient=p)
     
     return "<h1>Patient not found</h1>", 404

@@ -9,9 +9,8 @@
 
     <h2>Medical Report</h2>
     
-    {% if patient.report in ALLOWED_REPORTS %}
-        <a href="{{ url_for('download', filename=patient.report) }}">Download Report</a>
-    {% endif %}
+    
+    <a href="{{ url_for('download', file=patient.report) }}">Download Report</a>
 
     <a href="{{ url_for('dashboard') }}">back</a>
 {% endblock %}
